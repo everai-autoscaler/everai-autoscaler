@@ -10,7 +10,7 @@ pythonpath = [
 
 [project]
 name = "everai-autoscaler"
-version = "0.1.11"
+version = "0.1.12"
 #dynamic = ["version"]
 description = "base library of everai autoscaler"
 readme = "README.md"

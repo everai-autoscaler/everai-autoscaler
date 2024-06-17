@@ -17,6 +17,9 @@ class BuiltinAutoScaler(AutoScaler):
     @abstractmethod
     def autoscaler_name(cls) -> str: ...
 
+    @abstractmethod
+    def autoscaler_arguments(self) -> typing.Dict[str, ArgumentType]: ...
+
     @classmethod
     @abstractmethod
     def from_arguments(cls, arguments: typing.Dict[str, str]) -> BuiltinAutoScaler: ...
