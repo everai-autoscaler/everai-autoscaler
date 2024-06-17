@@ -1,14 +1,15 @@
 import typing
 
-from everai_autoscaler.model.factors import Factors
+from .factors import Factors
 from .action import  DecideResult
+from .autoscaler import AutoScaler
 
 T = typing.TypeVar('T', int, float, str)
 
 
 ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
-class BuiltinAutoScaler:
+class BuiltinAutoScaler(AutoScaler):
     def decide(self, factors: Factors) -> DecideResult: ...
 
     @classmethod

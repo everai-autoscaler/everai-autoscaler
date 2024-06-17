@@ -1,6 +1,8 @@
 from __future__ import annotations
 import typing
-from abc import ABC, abstractmethod
+from abc import abstractmethod
+
+from . import Factors, DecideResult
 from .autoscaler import AutoScaler
 
 
@@ -11,7 +13,12 @@ ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
 
 class BuiltinAutoScaler(AutoScaler):
-    ArgumentType = typing.Union[T, typing.Callable[[], T]]
+    @abstractmethod
+    def decide(self, factors: Factors) -> DecideResult: ...
+
+    @classmethod
+    @abstractmethod
+    def scheduler_name(cls) -> str: ...
 
     @classmethod
     @abstractmethod
