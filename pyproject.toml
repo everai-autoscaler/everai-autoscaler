@@ -10,7 +10,7 @@ pythonpath = [
 
 [project]
 name = "everai-autoscaler"
-version = "0.1.5"
+version = "0.1.11"
 #dynamic = ["version"]
 description = "base library of everai autoscaler"
 readme = "README.md"
@@ -48,12 +48,19 @@ build = [
 [project.urls]
 Homepage = "https://everai.expvent.com"
 Documentation = "https://everai.expvent.com"
-Repository = "https://github.com/everai-autoscaler/simple"
-Issues = "https://github.com/everai-autoscaler/simple/issues"
-Changelog = "https://github.com/everai-autoscaler/simple/blob/main/CHANGELOG.md"
+Repository = "https://github.com/everai-autoscaler/everai-autoscaler"
+Issues = "https://github.com/everai-autoscaler/everai-autoscaler/issues"
+Changelog = "https://github.com/everai-autoscaler/everai-autoscaler/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["everai_autoscaler.model"]
+
+#[tool.setuptools.package-dir]
+#lib = ["everai_autoscaler"]
+
 #[tool.setuptools.dynamic]
-#version = {attr = "everai.__version__"}
+#version = {attr = "everai_autoscaler.model.__version__"}

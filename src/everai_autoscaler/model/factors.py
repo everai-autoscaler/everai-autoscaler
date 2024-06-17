@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import typing
 from enum import Enum
 from pydantic import BaseModel, field_validator, Field
@@ -56,12 +57,7 @@ class Request(BaseModel):
         return Request.model_validate_json(data)
 
 
-class Queue(BaseModel):
-    queue: typing.Dict[QueueReason, int] = Field({})
-
-    @staticmethod
-    def from_json(data: any) -> Queue:
-        return Queue.model_validate_json(data)
+Queue = typing.Dict[QueueReason, int]
 
 
 class Factors(BaseModel):

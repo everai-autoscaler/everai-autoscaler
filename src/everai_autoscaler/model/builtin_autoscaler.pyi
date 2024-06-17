@@ -1,6 +1,6 @@
 import typing
 
-from .factors import Factors
+from everai_autoscaler.model.factors import Factors
 from .action import  DecideResult
 
 T = typing.TypeVar('T', int, float, str)
@@ -17,4 +17,5 @@ class BuiltinAutoScaler:
     @classmethod
     def autoscaler_name(cls) -> str: ...
 
-    def autoscaler_arguments(self) -> typing.Dict[str, ArgumentType]: ...
+    @classmethod
+    def from_arguments(cls, arguments: typing.Dict[str, str]) -> BuiltinAutoScaler: ...

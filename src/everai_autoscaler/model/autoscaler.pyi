@@ -1,4 +1,4 @@
-from .factors import Factors
+from everai_autoscaler.model.factors import Factors
 from .action import DecideResult
 
 class AutoScaler:

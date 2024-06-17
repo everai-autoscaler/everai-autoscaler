@@ -2,9 +2,9 @@
 build_package:
 	python -m build
 
-.PHONY: uplaod
+.PHONY: upload
 upload: build_package
-	twine upload $(shell ls dist/*.whl | sort -r | head -n 1)
+	twine upload $(shell ls -rt dist/*.whl | tail -n 1)
 
 .PHONY: test
 test:

@@ -1,7 +1,7 @@
-from .autoscaler import AutoScaler
+from .factors import Factors, QueueReason, WorkerStatus, Queue
 from .action import Action, ScaleUpAction, ScaleDownAction, DecideResult
-from .factors import Factors, QueueReason, WorkerStatus
 from .builtin_autoscaler import BuiltinAutoScaler, ArgumentType
+from .autoscaler import AutoScaler
 
 __all__ = [
     'AutoScaler',
@@ -9,6 +9,7 @@ __all__ = [
     'Factors',
     'QueueReason',
     'WorkerStatus',
+    'Queue',
     'ScaleUpAction',
     'ScaleDownAction',
     'DecideResult',
