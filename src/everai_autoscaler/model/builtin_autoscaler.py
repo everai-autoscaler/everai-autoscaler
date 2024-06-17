@@ -6,9 +6,9 @@ from . import Factors, DecideResult
 from .autoscaler import AutoScaler
 
 
-# T = typing.TypeVar('T', int, float, str)
+T = typing.Union[int, float, str]
 
-ArgumentType: typing.TypeAlias = typing.Union[int, float, str, typing.Callable[[], typing.Union[int, float, str]]]
+ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
 
 class BuiltinAutoScaler(AutoScaler):
