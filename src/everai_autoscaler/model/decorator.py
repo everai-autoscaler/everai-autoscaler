@@ -1,11 +1,11 @@
 from __future__ import annotations
 from pydantic import BaseModel, Field
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 
 class Decorator(BaseModel):
     name: str
-    arguments: Dict[str, str] = Field(default=None)
+    arguments: Optional[Dict[str, str]] = Field(default=None)
 
     @staticmethod
     def from_json(data) -> Decorator:
@@ -13,8 +13,8 @@ class Decorator(BaseModel):
 
 
 class Decorators(BaseModel):
-    arguments: List[Decorators] = Field(default=None)
-    factors: List[Decorators] = Field(default=None)
+    arguments: Optional[List[Decorator]] = Field(default=None)
+    factors: Optional[List[Decorator]] = Field(default=None)
 
     @staticmethod
     def from_json(data) -> Decorators:
