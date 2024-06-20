@@ -14,7 +14,7 @@ ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
 
 class BuiltinAutoScaler(AutoScaler):
-    decorators: Decorators
+    decorators: typing.Optional[Decorators]
 
     @abstractmethod
     def decide(self, factors: Factors) -> DecideResult: ...

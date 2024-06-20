@@ -11,7 +11,7 @@ T = typing.Union[int, float, str]
 ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
 class BuiltinAutoScaler(AutoScaler):
-    decorators: Decorators
+    decorators: typing.Optional[Decorators]
 
     def decide(self, factors: Factors) -> DecideResult: ...
 
