@@ -2,6 +2,7 @@ import typing
 
 from .factors import Factors
 from .action import  DecideResult
+from .decorator import Decorators
 from .autoscaler import AutoScaler
 
 T = typing.Union[int, float, str]
@@ -10,6 +11,8 @@ T = typing.Union[int, float, str]
 ArgumentType: typing.TypeAlias = typing.Union[T, typing.Callable[[], T]]
 
 class BuiltinAutoScaler(AutoScaler):
+    decorators: Decorators
+
     def decide(self, factors: Factors) -> DecideResult: ...
 
     @classmethod

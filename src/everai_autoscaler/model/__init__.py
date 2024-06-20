@@ -2,6 +2,9 @@ from .factors import Factors, QueueReason, WorkerStatus, Queue
 from .action import Action, ScaleUpAction, ScaleDownAction, DecideResult
 from .builtin_autoscaler import BuiltinAutoScaler, ArgumentType
 from .autoscaler import AutoScaler
+from .decorator import Decorator, Decorators
+
+__version__ = '0.1.16'
 
 __all__ = [
     'AutoScaler',
@@ -14,5 +17,7 @@ __all__ = [
     'ScaleDownAction',
     'DecideResult',
     'BuiltinAutoScaler',
-    'ArgumentType'
+    'ArgumentType',
+    'Decorator',
+    'Decorators',
 ]

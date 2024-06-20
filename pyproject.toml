@@ -10,8 +10,7 @@ pythonpath = [
 
 [project]
 name = "everai-autoscaler"
-version = "0.1.15"
-#dynamic = ["version"]
+dynamic = ["version"]
 description = "base library of everai autoscaler"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -57,10 +56,8 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src/"]
-include = ["everai_autoscaler.model"]
+include = ["everai_autoscaler.model", "everai_autoscaler.model.*"]
 
-#[tool.setuptools.package-dir]
-#lib = ["everai_autoscaler"]
 
-#[tool.setuptools.dynamic]
-#version = {attr = "everai_autoscaler.model.__version__"}
+[tool.setuptools.dynamic]
+version = {attr = "everai_autoscaler.model.__version__"}
