@@ -48,38 +48,27 @@ class QueueReason(Enum):
     QueueDueSession = 'QueueDueSession'
 
 
-class Request(BaseModel):
-    # time of enter the queued_request.py
-    queue_time: int
-    # queued_request.py reason
-    queue_reason: QueueReason
-
-    @staticmethod
-    def from_json(data: any) -> Request:
-        return Request.model_validate_json(data)
-
-
-Queue = Dict[QueueReason, int]
-Worker = Dict[WorkerStatus, int]
+QueueSummary = Dict[QueueReason, int]
+WorkerSummary = Dict[WorkerStatus, int]
 
 
 class Factors(BaseModel):
     # 10 -> queued_request.py information at 10 seconds ago
     # 30 -> queued_request.py information at 30 seconds ago
     # 60 -> queued_request.py information at 60 seconds ago
-    queue_histories: Optional[Dict[int, Queue]] = Field(default={})
+    queue_histories: Optional[Dict[int, QueueSummary]] = Field(default={})
 
     # queue statistic
-    queue: Optional[Queue] = Field(default=None)
+    queue: Optional[QueueSummary] = Field(default=None)
 
     # utilization, unsupported yet
     utilization: Optional[int] = Field(default=None)
 
     workers: Optional[List[Worker]] = Field(default=[])
 
-    worker: Optional[Worker] = Field(default=None)
+    worker: Optional[WorkerSummary] = Field(default=None)
 
-    worker_histories: Optional[Dict[int, Worker]] = Field(default=None)
+    worker_histories: Optional[Dict[int, WorkerSummary]] = Field(default=None)
 
     @staticmethod
     def from_json(data) -> Factors:
